@@ -32,6 +32,11 @@ request('https://raw.githack.com/naturalcrit/homebrewery/master/changelog.md', f
 
     lines.forEach((line)=>{
       let check = false;
+      if(line.indexOf('](')){
+        line = line.split('](').join(' - ');
+        line = line.split('[').join('');
+        line = line.split(')').join('');
+      }
       transforms.forEach((transform)=>{
         if(!check && line.substring(0,transform.search.length) == transform.search){
           check = true;
