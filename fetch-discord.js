@@ -1,5 +1,4 @@
 var request = require('request');
-const util = require('util');
 
 request('https://raw.githack.com/naturalcrit/homebrewery/master/changelog.md', function (error, response, body) {
   if (!error && response.statusCode == 200) {
